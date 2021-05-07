@@ -1,0 +1,27 @@
+Consultas base de datos
+
+--cantidad de registros 
+SELECT COUNT(*) FROM usuario
+
+--cantidad de registros para sexo masculino
+SELECT COUNT(*) FROM usuario, sexo WHERE SEXO.tipo = 'M' AND usuario.sexo_id = sexo.id
+
+--cantidad de registros para sexo femenino
+SELECT COUNT(*) FROM usuario, sexo WHERE SEXO.tipo = 'F' AND usuario.sexo_id = sexo.id
+
+--el promedio del peso de los usuarios
+SELECT AVG(usuario.peso) FROM usuario 
+
+--promedios de peso edad, talla edad y peso talla de los usuarios
+SELECT AVG(usuario.peso_edad_ds) AS peso_edad, AVG(usuario.talla_edad_ds) AS talla_edad, AVG(usuario.peso_talla_ds) AS peso_talla
+FROM usuario 
+
+--maximo, minimo y promedio de peso edad 
+SELECT MIN(usuario.peso_edad_ds) AS max_peso_edad, MAX(usuario.peso_edad_ds) AS min_peso_edad, AVG(usuario.peso_edad_ds) AS promedio_peso_edad
+FROM usuario
+
+--la cantidad de pesonas con riesgo de desnutricion global 
+SELECT COUNT(*) FROM usuario as u , pesoedaddenomina as p WHERE p.descripcion='Riesgo de Desnutricion Global' AND u.peso_edad_denomina_id = p.id
+
+--la cantidad de personas con desnutricion aguda moderada
+SELECT COUNT(*) FROM usuario as u , pesotalladenomina as p WHERE p.descripcion='Desnutricion Aguda Moderada' AND u.peso_talla_denomina_id = p.id

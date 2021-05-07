@@ -1,0 +1,67 @@
+CREATE TABLE `Usuario` (
+  `consecutivo_id` integer,
+  `ano` integer,
+  `eps_id` integer,
+  `regimen_id` integer,
+  `sexo_id` integer,
+  `peso` float,
+  `estatura` float,
+  `peso_edad_ds` float,
+  `peso_edad_denomina_id` integer,
+  `talla_edad_ds` float,
+  `talla_edad_denomina_id` integer,
+  `peso_talla_ds` float,
+  `peso_talla_denomina_id` integer,
+  `comuna_id` integer,
+  `edad_dias` integer,
+  `grupo_id` integer,
+  PRIMARY KEY (`consecutivo_id`)
+);
+
+CREATE TABLE `Regimen` (
+  `id` integer,
+  `tipo` text,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `GrupoEdad` (
+  `id` integer,
+  `descripcion` text,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Sexo` (
+  `id` integer,
+  `tipo` text,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Comuna` (
+  `id` integer,
+  `nombre_comuna` text,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `PesoTallaDenomina` (
+  `id` integer,
+  `descripcion` text,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `EPS` (
+  `id` integer,
+  `nombre` text,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `TallaEdadDenomina` (
+  `id` integer,
+  `descripcion` text,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `PesoEdadDenomina` (
+  `id` integer,
+  `descripcion` text,
+  PRIMARY KEY (`id`)
+);
